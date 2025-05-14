@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 
@@ -12,7 +14,7 @@ export function AnimatedBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    // Set canvas size
+    // Met à jour la taille du canvas
     const setCanvasSize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -20,57 +22,54 @@ export function AnimatedBackground() {
     setCanvasSize();
     window.addEventListener('resize', setCanvasSize);
 
-    // Code snippets to display
-    const codeSnippets = [
+    // Liste de snippets de code à afficher
+    const codeSnippets: string[] = [
       '<div>', '</div>', 'const', 'let', 'function', 'return', 'import',
       'export', 'class', 'interface', 'type', 'useState', 'useEffect',
       '{}', '[]', '=>', '&&', '||', '===', '!==', '.map()', '.filter()',
       'async', 'await', 'try', 'catch', 'Promise', 'null', 'undefined'
     ];
 
-    // Create drops
-    const drops: number[] = Array(Math.floor(canvas.width / 20)).fill(0);
     const fontSize = 14;
+    const columnCount = Math.floor(canvas.width / 20);
+    const drops: number[] = new Array(columnCount).fill(0);
 
-    // Animation
-    function draw() {
-      // Set transparency for trail effect
-      ctx.fillStyle = theme === 'dark' 
-        ? 'rgba(0, 0, 0, 0.1)' 
+    // Fonction de dessin
+    const draw = () => {
+      ctx.fillStyle = theme === 'dark'
+        ? 'rgba(0, 0, 0, 0.1)'
         : 'rgba(248, 249, 250, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Set text color
       ctx.fillStyle = theme === 'dark'
-        ? 'rgba(75, 0, 130, 0.3)' // Indigo with opacity
-        : 'rgba(75, 0, 130, 0.15)'; // Lighter indigo for light theme
+        ? 'rgba(75, 0, 130, 0.3)'
+        : 'rgba(75, 0, 130, 0.15)';
       ctx.font = `${fontSize}px monospace`;
 
-      // Draw code snippets
       drops.forEach((y, i) => {
         const text = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
         const x = i * 20;
-        
+
         ctx.fillText(text, x, y);
 
-        // Reset drop or move it down
+        // Redémarre la chute aléatoirement ou lorsqu'elle atteint le bas
         if (y > canvas.height || Math.random() > 0.98) {
           drops[i] = 0;
         } else {
           drops[i] += fontSize;
         }
       });
-    }
+    };
 
-    // Animation loop
+    // Boucle d'animation
     let animationFrame: number;
-    function animate() {
+    const animate = () => {
       draw();
       animationFrame = requestAnimationFrame(animate);
-    }
+    };
     animate();
 
-    // Cleanup
+    // Nettoyage à la désactivation du composant
     return () => {
       window.removeEventListener('resize', setCanvasSize);
       cancelAnimationFrame(animationFrame);
