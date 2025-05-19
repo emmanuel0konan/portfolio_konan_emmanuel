@@ -33,13 +33,13 @@ const projects = [
   },
   {
     id: 3,
-    title: "Real-time Chat Application",
-    description: "A real-time messaging platform with private and group chats, file sharing, and notification system.",
+    title: "Post IT",
+    description: "Une aplication Web qui permet d ajouter des notes de les modifier et de les supprimmer ",
     image: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg",
-    tags: ["React", "Socket.io", "Express", "PostgreSQL"],
-    liveUrl: "#",
+    tags: ["Vue js", "Tailwind CSS"],
+    liveUrl: "https://post-it-ashy.vercel.app/#/",
     repoUrl: "#",
-    category: "fullstack",
+    category: "frontend",
   },
   {
     id: 4,
