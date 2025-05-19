@@ -27,7 +27,7 @@ const projects = [
     description: "Un site web qui permet aux utilisateurs de noter leurs films voir les films du moment parmi un large catalogue de films foruni grace a l api de tmdb .",
     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
-    liveUrl: "https://rotten-tomatoes-drab.vercel.app/",
+    liveUrl: "https://rotten-tomatoes-drab.vercel.app/home3",
     repoUrl: "#",
     category: "fullstack",
   },
