@@ -13,11 +13,11 @@ import { Button } from "@/components/ui/button";
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "A full-featured e-commerce platform with product management, cart functionality, and payment processing.",
+    title: "Dashboard",
+    description: "Une application web fait en react JS qui regroupe plusieurs microservices independant",
     image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    liveUrl: "#",
+    tags: ["React", "Nest JS", "MongoDB"],
+    liveUrl: "https://front-end-react-tau.vercel.app/",
     repoUrl: "#",
     category: "fullstack",
   },

@@ -53,7 +53,7 @@ export function AboutSection() {
             className="relative rounded-lg overflow-hidden aspect-square max-w-md mx-auto lg:mx-0"
           >
             <Image
-              src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+              src="images/me.png"
               alt="Profile Image"
               fill
               className="object-cover"
