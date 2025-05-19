@@ -53,7 +53,7 @@ export function AboutSection() {
             className="relative rounded-lg overflow-hidden aspect-square max-w-md mx-auto lg:mx-0"
           >
             <Image
-              src="images/me.png"
+              src="images/me.PNG"
               alt="Profile Image"
               fill
               className="object-cover"
